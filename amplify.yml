@@ -6,7 +6,7 @@ frontend:
         - npm install
     build:
       commands:
-        - gsed -i "s|JOBID|${AWS_APP_ID}/${AWS_BRANCH}/${AWS_JOB_ID}|g" src/App.js
+        - sed -i "s|JOBID|${AWS_APP_ID}/${AWS_BRANCH}/${AWS_JOB_ID}|g" src/App.js
         - echo $AWS_APP_ID/$AWS_BRANCH/$AWS_JOB_ID > public/job.txt
         - npm run build
   artifacts:
